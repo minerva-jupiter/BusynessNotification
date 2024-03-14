@@ -3,10 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="True"
         xmlns:local="clr-namespace:BusynessNotification"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <CheckBox x:Name="CPUcheck" Content="CPU" HorizontalAlignment="Center" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
+        <CheckBox Content="Memory" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+        <CheckBox Content="Disk" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
+        <Button x:Name="SaveSettingButton" Content="Save" Margin="83,0,84,0" Grid.Row="3" VerticalAlignment="Center"/>
+        <Slider x:Name="CPUSlider" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150"/>
+        <Slider x:Name="MemorySlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Margin="0,38,0,38" Grid.Row="1" d:LayoutOverrides="Height"/>
+        <Slider x:Name="DiskSlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Margin="0,38,0,39" Grid.Row="2" d:LayoutOverrides="Height"/>
     </Grid>
 </Window>
