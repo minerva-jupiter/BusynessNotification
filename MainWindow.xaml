@@ -26,12 +26,19 @@
         <Button x:Name="SaveSettingButton" Content="Save" Margin="83,0,84,0" Grid.Row="3" VerticalAlignment="Center"/>
 
         <Slider x:Name="CPUSlider" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" ValueChanged="CPUSlider_ValueChanged" Maximum="100" Margin="0,0,58,0"/>
-        <TextBox x:Name="TextBox_CPUSlider" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" TextChanged="TextBox_CPUSlider_TextChanged" VerticalAlignment="Center" Text="0"/>
+        <TextBox x:Name="TextBox_CPUSlider" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" TextChanged="TextBox_CPUSlider_TextChanged" VerticalAlignment="Center" Text="0" MaxLines="4" MaxLength="3"/>
+        <TextBlock x:Name="sec" Grid.Column="2" Margin="171,51,77,39" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" d:LayoutOverrides="VerticalAlignment"/>
 
-        <Slider x:Name="MemorySlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Margin="0,38,0,38" Grid.Row="1" d:LayoutOverrides="Height" ValueChanged="MemorySlider_ValueChanged"/>
-        <TextBox x:Name="TextBox_MemorySlider" Grid.Column="1" TextChanged="TextBox_MemorySlider_TextChanged" Margin="202,38,0,38" Grid.Row="1" d:LayoutOverrides="Width, Height" Text="0"/>
+        <Slider x:Name="MemorySlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Margin="0,38,0,38" Grid.Row="1" d:LayoutOverrides="Height" ValueChanged="MemorySlider_ValueChanged" Maximum="100"/>
+        <TextBox x:Name="TextBox_MemorySlider" Grid.Column="1" TextChanged="TextBox_MemorySlider_TextChanged" Margin="202,38,0,38" Grid.Row="1" d:LayoutOverrides="Width, Height" Text="0" VerticalAlignment="Center" MaxLength="3" MaxLines="1"/>
 
-        <Slider x:Name="DiskSlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Margin="0,38,0,39" Grid.Row="2" d:LayoutOverrides="Height" ValueChanged="DiskSlider_ValueChanged"/>
-        <TextBox x:Name="TextBox_DiskSlider" Grid.Column="1" HorizontalAlignment="Right" Margin="174,0,0,0" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" d:LayoutOverrides="TopPosition, BottomPosition" TextChanged="TextBox_DiskSlider_TextChanged"/>
+        <Slider x:Name="DiskSlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Margin="0,38,0,39" Grid.Row="2" d:LayoutOverrides="Height" ValueChanged="DiskSlider_ValueChanged" Maximum="100"/>
+        <TextBox x:Name="TextBox_DiskSlider" Grid.Column="1" HorizontalAlignment="Right" Margin="174,0,0,0" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" d:LayoutOverrides="TopPosition, BottomPosition" TextChanged="TextBox_DiskSlider_TextChanged" MaxLength="3" MaxLines="2"/>
+        <TextBox x:Name="CPUSecTextBox" Grid.Column="2" TextWrapping="Wrap" VerticalAlignment="Center" d:LayoutOverrides="TopPosition, BottomPosition" Text="10" UndoLimit="4" HorizontalAlignment="Center" TextAlignment="Center" TextChanged="CPUSecTextBox_TextChanged" MaxLines="1" MaxLength="3"/>
+        <TextBlock x:Name="secコピー__C_" Grid.Column="2" Margin="171,51,77,39" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" d:LayoutOverrides="VerticalAlignment" Grid.Row="1"/>
+        <TextBox x:Name="MemorySecTextBox" Grid.Column="2" TextWrapping="Wrap" Text="10" UndoLimit="4" HorizontalAlignment="Center" TextAlignment="Center" d:LayoutOverrides="Height" Margin="0,38,0,38" Grid.Row="1" TextChanged="MemorySecTextBox_TextChanged" MaxLines="1" MaxLength="3"/>
+        <TextBlock x:Name="secコピー__C_コピー__C_" Grid.Column="2" Margin="171,51,77,40" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" Grid.Row="2" d:LayoutOverrides="VerticalAlignment"/>
+        <TextBox x:Name="DiskSecTextBox" Grid.Column="2" TextWrapping="Wrap" Text="10" UndoLimit="4" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,38,0,39" Grid.Row="2" d:LayoutOverrides="Height" TextChanged="DiskSecTextBox_TextChanged" MaxLength="3" MaxLines="1"/>
+
     </Grid>
 </Window>

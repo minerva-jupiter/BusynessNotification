@@ -33,7 +33,10 @@ namespace BusynessNotification
             if (TextBox_CPUSlider.ToString() != "")
             {
                 double CPUvalue = double.Parse(TextBox_CPUSlider.Text);
-                CPUSlider.Value = CPUvalue;
+                if (0 <= CPUvalue && CPUvalue　<= 100)
+                {
+                    CPUSlider.Value = CPUvalue;
+                }
             }
         }
 
@@ -42,15 +45,18 @@ namespace BusynessNotification
             if (TextBox_CPUSlider.ToString() != "")
             {
                 double Memoryvalue = double.Parse(TextBox_MemorySlider.Text);
-                CPUSlider.Value = Memoryvalue;
+                if (0 <= Memoryvalue && Memoryvalue <= 100)
+                {
+                    MemorySlider.Value = Memoryvalue;
+                }
             }
         }
 
         private void MemorySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             int Memoryvalue = (int)e.NewValue;
-            TextBox_CPUSlider.Text = Memoryvalue.ToString();
-            CPUSlider.Value = Memoryvalue;
+            TextBox_MemorySlider.Text = Memoryvalue.ToString();
+            MemorySlider.Value = Memoryvalue;
         }
 
         private void DiskSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -65,7 +71,67 @@ namespace BusynessNotification
             if (TextBox_DiskSlider.Text.ToString() != "")
             {
                 double Diskvalue = double.Parse (TextBox_DiskSlider.Text);
-                DiskSlider.Value = Diskvalue;
+                if(0 <= Diskvalue && Diskvalue <= 100) { 
+                    DiskSlider.Value = Diskvalue; 
+                }
+            }
+        }
+
+        private void CPUSecTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (CPUSecTextBox.Text.ToString() != "")
+            {
+                int CPUSecValue = new int();
+                bool CPUSecCan = int.TryParse (CPUSecTextBox.Text.ToString(),out CPUSecValue);
+                if (CPUSecCan == false || CPUSecValue < 0 || CPUSecValue >= 1000)
+                {
+                    string messageBoxText = "Please enter up to 3 digits?";
+                    string caption = "unexpected input";
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    MessageBoxImage icon = MessageBoxImage.Warning;
+                    MessageBoxResult result;
+
+                    result = MessageBox.Show(messageBoxText, caption, button, icon);
+                    CPUSecTextBox.
+                }
+            }
+        }
+
+        private void MemorySecTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (MemorySecTextBox.Text.ToString() != "")
+            {
+                int MemorySecValue = new int();
+                bool MemorySecCan = int.TryParse(MemorySecTextBox.Text.ToString(), out MemorySecValue);
+                if (MemorySecCan == false || MemorySecValue < 0 || MemorySecValue >= 1000)
+                {
+                    string messageBoxText = "Please enter up to 3 digits?";
+                    string caption = "unexpected input";
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    MessageBoxImage icon = MessageBoxImage.Warning;
+                    MessageBoxResult result;
+
+                    result = MessageBox.Show(messageBoxText, caption, button, icon);
+                }
+            }
+        }
+
+        private void DiskSecTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (DiskSecTextBox.Text.ToString() != "")
+            {
+                int DiskSecValue = new int();
+                bool DiskSecCan = int.TryParse(DiskSecTextBox.Text.ToString(), out DiskSecValue);
+                if (DiskSecCan == false || DiskSecValue < 0 || DiskSecValue >= 1000)
+                {
+                    string messageBoxText = "Please enter up to 3 digits?";
+                    string caption = "unexpected input";
+                    MessageBoxButton button = MessageBoxButton.OK;
+                    MessageBoxImage icon = MessageBoxImage.Warning;
+                    MessageBoxResult result;
+
+                    result = MessageBox.Show(messageBoxText, caption, button, icon);
+                }
             }
         }
     }
