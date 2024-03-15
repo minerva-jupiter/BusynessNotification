@@ -13,3 +13,7 @@ from Windows.System.Diagnostics
 and Disk activeTime 
 
 テーマはユーザーのwindowsのテーマが自動的に適応されます。
+
+タスクトレイ常駐化はこちら
+https://qiita.com/TiggeZaki/items/aa17edbef0cc5f4736d9
+

@@ -25,6 +25,7 @@
         <CheckBox Content="Disk" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
         <Button x:Name="SaveSettingButton" Content="Save" Margin="83,0,84,0" Grid.Row="3" VerticalAlignment="Center"/>
         <Slider x:Name="CPUSlider" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150"/>
+        <TextBox x:Name="textBox_NormalSlider" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Height="23" Width="50" Text="{Binding Value, ElementName=CPUSlider}"/>
         <Slider x:Name="MemorySlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Margin="0,38,0,38" Grid.Row="1" d:LayoutOverrides="Height"/>
         <Slider x:Name="DiskSlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Margin="0,38,0,39" Grid.Row="2" d:LayoutOverrides="Height"/>
     </Grid>
