@@ -17,3 +17,5 @@ and Disk activeTime
 タスクトレイ常駐化はこちら
 https://qiita.com/TiggeZaki/items/aa17edbef0cc5f4736d9
 
+設定ファイルのいじり方はこちら
+https://learn.microsoft.com/ja-jp/dotnet/desktop/winforms/advanced/how-to-write-user-settings-at-run-time-with-csharp?view=netframeworkdesktop-4.8
