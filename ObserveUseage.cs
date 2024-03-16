@@ -43,7 +43,7 @@ namespace BusynessNotification
             Disc1.CounterName = "Disk Transfers/sec";
             Disc1.InstanceName = "C:";
 
-            Timer timer = null;
+            System.Threading.Timer timer = null;
             
             TimerCallback timer_delegate = async state =>
             {
@@ -84,7 +84,7 @@ namespace BusynessNotification
                     timer.Dispose();
                 }
             };
-            timer = new Timer(timer_delegate,null,1000,1000);
+            timer = new System.Threading.Timer(timer_delegate,null,1000,1000);
 
 
         }

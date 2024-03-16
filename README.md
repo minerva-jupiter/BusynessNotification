@@ -25,3 +25,5 @@ https://learn.microsoft.com/ja-jp/dotnet/desktop/winforms/advanced/how-to-write-
 timer.thread.timer
 https://atmarkit.itmedia.co.jp/ait/articles/0511/11/news118.html
 
+タスクトレイアイコン
+https://qiita.com/kyv28v/items/0a5b078d246000cb6781

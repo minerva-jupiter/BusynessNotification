@@ -92,7 +92,7 @@ namespace BusynessNotification
                     MessageBoxImage icon = MessageBoxImage.Warning;
                     MessageBoxResult result;
 
-                    result = MessageBox.Show(messageBoxText, caption, button, icon);
+                    result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
                     CPUSecTextBox.Text = CPUSecValue.ToString();
                 }
             }
@@ -112,7 +112,7 @@ namespace BusynessNotification
                     MessageBoxImage icon = MessageBoxImage.Warning;
                     MessageBoxResult result;
 
-                    result = MessageBox.Show(messageBoxText, caption, button, icon);
+                    result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
                 }
             }
         }
@@ -131,7 +131,7 @@ namespace BusynessNotification
                     MessageBoxImage icon = MessageBoxImage.Warning;
                     MessageBoxResult result;
 
-                    result = MessageBox.Show(messageBoxText, caption, button, icon);
+                    result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
                 }
             }
         }
