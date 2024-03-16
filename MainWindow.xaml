@@ -21,9 +21,9 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <CheckBox x:Name="CPUcheck" Content="CPU" HorizontalAlignment="Center" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
-        <CheckBox Content="Memory" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
-        <CheckBox Content="Disk" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
-        <Button x:Name="SaveSettingButton" Content="Save" Margin="83,0,84,0" Grid.Row="3" VerticalAlignment="Center"/>
+        <CheckBox x:Name="Memorycheck" Content="Memory" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+        <CheckBox x:Name="Diskcheck" Content="Disk" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
+        <Button x:Name="SaveSettingButton" Content="Save" Margin="110,0,110,0" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" d:LayoutOverrides="Width" Click="SaveSettingButton_Click"/>
 
         <Slider x:Name="CPUSlider" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="150" ValueChanged="CPUSlider_ValueChanged" Maximum="100" Margin="0,0,58,0"/>
         <TextBox x:Name="TextBox_CPUSlider" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" TextChanged="TextBox_CPUSlider_TextChanged" VerticalAlignment="Center" Text="0" MaxLines="4" MaxLength="3"/>

@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -92,7 +93,7 @@ namespace BusynessNotification
                     MessageBoxResult result;
 
                     result = MessageBox.Show(messageBoxText, caption, button, icon);
-                    CPUSecTextBox.
+                    CPUSecTextBox.Text = CPUSecValue.ToString();
                 }
             }
         }
@@ -133,6 +134,23 @@ namespace BusynessNotification
                     result = MessageBox.Show(messageBoxText, caption, button, icon);
                 }
             }
+        }
+
+        private void SaveSettingButton_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.CheckCPU = CPUcheck.IsChecked.Value;
+            Properties.Settings.Default.CheckMemory = Memorycheck.IsChecked.Value;
+            Properties.Settings.Default.CheckDisk = Diskcheck.IsChecked.Value;
+
+            Properties.Settings.Default.SliderCPU = CPUSlider.Value;
+            Properties.Settings.Default.SliderMemory = MemorySlider.Value;
+            Properties.Settings.Default.SliderDisk = DiskSlider.Value;
+
+            Properties.Settings.Default.SecCPU = int.Parse(CPUSecTextBox.Text.ToString());
+            Properties.Settings.Default.SecMemory = int.Parse(MemorySecTextBox.Text.ToString());
+            Properties.Settings.Default.SecDisk = int.Parse(DiskSecTextBox.Text.ToString());
+
+            Properties.Settings.Default.Save();
         }
     }
 }
