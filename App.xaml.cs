@@ -12,6 +12,7 @@ namespace BusynessNotification
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            ///ここにスタートアップ時の処理を記述
         }
     }
 

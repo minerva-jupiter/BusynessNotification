@@ -9,8 +9,10 @@ to ModernWpfUI
 SystemCPUuseage
 SystemMemoryUseage
 from Windows.System.Diagnostics
+https://windev.just4fun.biz/?.NET/CPU%E4%BD%BF%E7%94%A8%E7%8E%87%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B
 
 and Disk activeTime 
+https://codezine.jp/article/detail/3238?p=4
 
 テーマはユーザーのwindowsのテーマが自動的に適応されます。
 
@@ -19,3 +21,7 @@ https://qiita.com/TiggeZaki/items/aa17edbef0cc5f4736d9
 
 設定ファイルのいじり方はこちら
 https://learn.microsoft.com/ja-jp/dotnet/desktop/winforms/advanced/how-to-write-user-settings-at-run-time-with-csharp?view=netframeworkdesktop-4.8
+
+timer.thread.timer
+https://atmarkit.itmedia.co.jp/ait/articles/0511/11/news118.html
+
