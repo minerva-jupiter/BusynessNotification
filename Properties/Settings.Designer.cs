@@ -25,7 +25,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool CheckCPU {
             get {
                 return ((bool)(this["CheckCPU"]));
@@ -37,7 +37,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool CheckMemory {
             get {
                 return ((bool)(this["CheckMemory"]));
@@ -49,7 +49,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool CheckDisk {
             get {
                 return ((bool)(this["CheckDisk"]));
@@ -61,7 +61,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
         public double SliderCPU {
             get {
                 return ((double)(this["SliderCPU"]));
@@ -73,7 +73,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
         public double SliderMemory {
             get {
                 return ((double)(this["SliderMemory"]));
@@ -85,7 +85,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
         public double SliderDisk {
             get {
                 return ((double)(this["SliderDisk"]));
@@ -97,7 +97,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public int SecCPU {
             get {
                 return ((int)(this["SecCPU"]));
@@ -109,7 +109,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public int SecMemory {
             get {
                 return ((int)(this["SecMemory"]));
@@ -121,7 +121,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public int SecDisk {
             get {
                 return ((int)(this["SecDisk"]));

@@ -19,33 +19,17 @@ namespace BusynessNotification
         {
             base.OnStartup(e);
             ///ここにスタートアップ時の処理を記述
-            System.Windows.Forms.NotifyIcon notifyIcon;
-            notifyIcon = new NotifyIcon();
-            notifyIcon.Text = "BusynessNotification";
-            notifyIcon.Visible = true;
-
-            //アイコンにコンテキストメニュー「終了」を追加する
-            ContextMenuStrip menuStrip = new ContextMenuStrip();
-
-            ToolStripMenuItem exitItem = new ToolStripMenuItem();
-            exitItem.Text = "終了";
-            menuStrip.Items.Add(exitItem);
-            exitItem.Click += new EventHandler(exitItem_Click);
-            notifyIcon.ContextMenuStrip = menuStrip;
-            notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(notifyIcon_MouseClick);
+            var icon = GetResourceStream(new Uri("BussynessNotificaion.ico", UriKind.Relative)).Stream;
+            var notifyIcon = new System.Windows.Forms.NotifyIcon
+            {
+                Visible = true,
+                Icon = new System.Drawing.Icon(icon),
+                Text = "BusynessNotification"
+            };
+            notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(NotifyIcon_Click);
 
             ObserveUseage observeUseage = new ObserveUseage();
             observeUseage.Controller();
-
-            void exitItem_Click(object sender, EventArgs e)
-            {
-                try
-                {
-                    notifyIcon.Dispose();
-                    System.Windows.Application.Current.Shutdown();
-                }
-                catch { }
-            }
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -53,10 +37,13 @@ namespace BusynessNotification
             base.OnExit(e);
         }
 
-        private void notifyIcon_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void NotifyIcon_Click(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            var mainwindow = new MainWindow();
-            mainwindow.Show();
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                var wnd = new MainWindow();
+                wnd.Show();
+            }
         }
     }
 

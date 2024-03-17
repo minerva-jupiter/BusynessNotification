@@ -10,11 +10,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<Reference Include="System.Windows.Forms" />
+    <None Remove="BussynessNotificaion.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Reference Include="System.Windows.Forms">
+	  <SpecificVersion>False</SpecificVersion>
+	  <EmbedInteropTypes>True</EmbedInteropTypes>
+	</Reference>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="BussynessNotificaion.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -31,9 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="BussynessNotificaion.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
