@@ -118,7 +118,7 @@ namespace BusynessNotification
 
                     new ToastContentBuilder()
                         .AddText("Byssyness Notification")
-                        .AddText("PCは使用可能な状態です。")
+                        .AddText("This PC is now available")
                         .Show();
                     Application.Exit();
                 }
