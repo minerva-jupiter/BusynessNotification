@@ -78,9 +78,6 @@ namespace BusynessNotification
                 {
                     await Task.Run(() =>
                     {
-
-                        Debug.WriteLine(performanceCounterRAM.NextValue().ToString());
-
                         if (performanceCounterRAM.NextValue() <= MemorySlider)
                         {
                             flagMemory++;

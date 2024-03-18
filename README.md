@@ -3,6 +3,8 @@
 HDDをシステムドライブにしたPCやスタートアップアプリが多いPCに対して最も効果的に働きます。
 また、このアプリを常駐させることで、動作が重くなった際にどのリソースを開放するべきかを通知してくれる機能を追加予定です。
 
+以下、開発メモ
+
 ダークテーマ参考:https://zenn.dev/apterygiformes/books/470ba1042dfbef/viewer/b798d6
 to ModernWpfUI
 
@@ -34,3 +36,7 @@ https://windev.just4fun.biz/?WPF/%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%A6%E3%82%82Ma
 
 通知
 https://zenn.dev/ambleside138/articles/75e7f8fdcf4fdc
+
+アイコンの設定
+https://it-skill-memo.work/2019/08/17/%E3%80%90wpf%E3%80%91%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8B/
+通知に表示されるアプリケーションのアイコンは「コンテンツ」タスクトレイのものは「リソース」として別々のファイルとして保存している。
