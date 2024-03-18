@@ -142,5 +142,10 @@ namespace BusynessNotification
                 return value;
             }
         }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+            System.Diagnostics.Process.Start(System.Windows.Application.ResourceAssembly.Location);
+        }
     }
 }

@@ -31,3 +31,6 @@ http://csfun.blog49.fc2.com/blog-entry-93.html
 
 MainWindow”ñ•\Ž¦‚Í‚±‚ê
 https://windev.just4fun.biz/?WPF/%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%A6%E3%82%82MainWindow%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%97%E3%81%9F%E3%81%8F%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88
+
+’Ê’m
+https://zenn.dev/ambleside138/articles/75e7f8fdcf4fdc

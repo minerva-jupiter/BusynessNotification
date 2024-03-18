@@ -73,7 +73,7 @@ namespace BusynessNotification.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        [global::System.Configuration.DefaultSettingValueAttribute("90")]
         public double SliderMemory {
             get {
                 return ((double)(this["SliderMemory"]));

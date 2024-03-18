@@ -15,7 +15,7 @@
       <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="SliderMemory" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">50</Value>
+      <Value Profile="(Default)">90</Value>
     </Setting>
     <Setting Name="SliderDisk" Type="System.Double" Scope="User">
       <Value Profile="(Default)">50</Value>

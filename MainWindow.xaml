@@ -7,7 +7,8 @@
         ui:WindowHelper.UseModernWindowStyle="True"
         xmlns:local="clr-namespace:BusynessNotification"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Closing="Window_Closing">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition/>
