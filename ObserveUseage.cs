@@ -23,8 +23,7 @@ namespace BusynessNotification
             bool CheckDisk = Properties.Settings.Default.CheckDisk;
 
             double CPUSlider = Properties.Settings.Default.SliderCPU;
-            ///double MemorySlider = Properties.Settings.Default.SliderMemory;
-            double MemorySlider = 80;
+            double MemorySlider = Properties.Settings.Default.SliderMemory;
             double DiskSlider = Properties.Settings.Default.SliderDisk;
 
             int SecCPU = Properties.Settings.Default.SecCPU;
