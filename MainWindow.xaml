@@ -20,6 +20,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
         <CheckBox x:Name="CPUcheck" Content="CPU" HorizontalAlignment="Center" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
         <CheckBox x:Name="Memorycheck" Content="Memory" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
         <CheckBox x:Name="Diskcheck" Content="Disk" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
@@ -27,17 +28,17 @@
 
         <Slider x:Name="CPUSlider" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" ValueChanged="CPUSlider_ValueChanged" Maximum="100" SmallChange="1"/>
         <TextBox x:Name="TextBox_CPUSlider" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" TextChanged="TextBox_CPUSlider_TextChanged" VerticalAlignment="Center" Text="0" MaxLines="4" MaxLength="3"/>
-        <TextBlock x:Name="sec" Grid.Column="2" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0"/>
+        <TextBlock x:Name="sec_CPU" Grid.Column="2" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0"/>
+        <TextBox x:Name="CPUSecTextBox" Grid.Column="2" TextWrapping="Wrap" VerticalAlignment="Center" d:LayoutOverrides="TopPosition, BottomPosition" Text="10" UndoLimit="4" HorizontalAlignment="Center" TextAlignment="Center" TextChanged="CPUSecTextBox_TextChanged" MaxLines="1" MaxLength="3"/>
 
         <Slider x:Name="MemorySlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Grid.Row="1" d:LayoutOverrides="Height" ValueChanged="MemorySlider_ValueChanged" Maximum="100" VerticalAlignment="Center" SmallChange="1"/>
         <TextBox x:Name="TextBox_MemorySlider" Grid.Column="1" TextChanged="TextBox_MemorySlider_TextChanged" Grid.Row="1" d:LayoutOverrides="Width, Height" Text="0" VerticalAlignment="Center" MaxLength="3" MaxLines="1" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="sec_Memory" Grid.Column="2" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0"/>
+        <TextBox x:Name="MemorySecTextBox" Grid.Column="2" TextWrapping="Wrap" Text="10" UndoLimit="4" HorizontalAlignment="Center" TextAlignment="Center" d:LayoutOverrides="Height" Grid.Row="1" TextChanged="MemorySecTextBox_TextChanged" MaxLines="1" MaxLength="3" VerticalAlignment="Center"/>
 
         <Slider x:Name="DiskSlider" Grid.Column="1" HorizontalAlignment="Center" Width="150" Grid.Row="2" d:LayoutOverrides="Height" ValueChanged="DiskSlider_ValueChanged" Maximum="100" VerticalAlignment="Center" SmallChange="1"/>
         <TextBox x:Name="TextBox_DiskSlider" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" d:LayoutOverrides="TopPosition, BottomPosition" TextChanged="TextBox_DiskSlider_TextChanged" MaxLength="3" MaxLines="2"/>
-        <TextBox x:Name="CPUSecTextBox" Grid.Column="2" TextWrapping="Wrap" VerticalAlignment="Center" d:LayoutOverrides="TopPosition, BottomPosition" Text="10" UndoLimit="4" HorizontalAlignment="Center" TextAlignment="Center" TextChanged="CPUSecTextBox_TextChanged" MaxLines="1" MaxLength="3"/>
-        <TextBlock x:Name="secコピー__C_" Grid.Column="2" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0"/>
-        <TextBox x:Name="MemorySecTextBox" Grid.Column="2" TextWrapping="Wrap" Text="10" UndoLimit="4" HorizontalAlignment="Center" TextAlignment="Center" d:LayoutOverrides="Height" Grid.Row="1" TextChanged="MemorySecTextBox_TextChanged" MaxLines="1" MaxLength="3" VerticalAlignment="Center"/>
-        <TextBlock x:Name="secコピー__C_コピー__C_" Grid.Column="2" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0"/>
+        <TextBlock x:Name="sec_Disk" Grid.Column="2" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0"/>
         <TextBox x:Name="DiskSecTextBox" Grid.Column="2" TextWrapping="Wrap" Text="10" UndoLimit="4" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="2" d:LayoutOverrides="Height" TextChanged="DiskSecTextBox_TextChanged" MaxLength="3" MaxLines="1" VerticalAlignment="Center"/>
 
     </Grid>

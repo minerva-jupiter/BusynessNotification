@@ -35,7 +35,6 @@ namespace BusynessNotification
             int flagDisk = 0;
 
             Debug.WriteLine("Setting file have readed");
-            Debug.WriteLine("memorySlider " + MemorySlider);
 
             ///インスタンス
             System.Diagnostics.PerformanceCounter cpuCounter = new System.Diagnostics.PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
@@ -119,7 +118,7 @@ namespace BusynessNotification
                         .AddText("Byssyness Notification")
                         .AddText("This PC is now available")
                         .Show();
-                    Application.Exit();
+                    Environment.Exit(0);
                 }
             };
             timer = new System.Threading.Timer(timer_delegate,null,1000,1000);
