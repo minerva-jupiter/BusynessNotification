@@ -155,7 +155,16 @@ namespace BusynessNotification
 
                 result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
             }
+            finally
+            {
+                string messageBoxText = "Saving setting prosess is finished";
+                string caption = "Finish saving setting prosess";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Information;
+                MessageBoxResult result;
 
+                result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+            }
         }
 
         static double InputNormalizerToDouble(string input,double oldValue)
