@@ -35,6 +35,13 @@ namespace BusynessNotification
             int SecMemory = Properties.Settings.Default.SecMemory;
             int SecDisk = Properties.Settings.Default.SecDisk;
 
+            try
+            {
+                CheckCPU = Properties.Settings.Default.CheckCPU;
+                CheckMemory = Properties.Settings.Default.CheckMemory;
+                CheckDisk = Properties.Settings.Default.CheckDisk;
+            }
+
             ///取得した値をUIに適応
             CPUcheck.IsChecked = CheckCPU;
             Memorycheck.IsChecked = CheckMemory;
