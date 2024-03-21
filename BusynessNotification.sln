@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusynessNotification", "BusynessNotification.csproj", "{25335200-E431-4822-AD12-9C1233B954F5}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BN_installer", "BN_installer\BN_installer.vdproj", "{9C10A9FF-40F1-41A3-952C-E2899B260424}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BN_installer", "BN_installer\BN_installer.vdproj", "{F811DBD4-AA5C-4223-82A0-98945B86D6DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{25335200-E431-4822-AD12-9C1233B954F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25335200-E431-4822-AD12-9C1233B954F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25335200-E431-4822-AD12-9C1233B954F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C10A9FF-40F1-41A3-952C-E2899B260424}.Debug|Any CPU.ActiveCfg = Debug
-		{9C10A9FF-40F1-41A3-952C-E2899B260424}.Release|Any CPU.ActiveCfg = Release
+		{F811DBD4-AA5C-4223-82A0-98945B86D6DC}.Debug|Any CPU.ActiveCfg = Debug
+		{F811DBD4-AA5C-4223-82A0-98945B86D6DC}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
