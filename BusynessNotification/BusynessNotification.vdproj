@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_B6A316858FD64936BA45FB838A8A279B"
+        "MsmKey" = "8:_5EB68BA3BA0B42BCA9BB72C1410AAC80"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D8D32F4D543340DBA4F106D6BB728A40"
+        "MsmKey" = "8:_B6A316858FD64936BA45FB838A8A279B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -178,7 +178,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BusynessNotification"
         "ProductCode" = "8:{26B7B805-55B2-40B9-94AE-5EA22CB8FF02}"
-        "PackageCode" = "8:{F5B5D477-77BA-4A0B-8C38-1737CD919DA7}"
+        "PackageCode" = "8:{57ECA319-65BB-44E0-AB05-DE1DE173D427}"
         "UpgradeCode" = "8:{5DC23A2B-42F1-4AFF-B2BB-8326DAB2F828}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -306,7 +306,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_D8D32F4D543340DBA4F106D6BB728A40"
+            "Target" = "8:"
             "Folder" = "8:_9DB34338D9544EDB8748C43D241E4C84"
             "WorkingFolder" = "8:_69A7B3F3CB674EACA4C595D71CCD497E"
             "Icon" = "8:_B6A316858FD64936BA45FB838A8A279B"
@@ -320,7 +320,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_D8D32F4D543340DBA4F106D6BB728A40"
+            "Target" = "8:"
             "Folder" = "8:_311EA59CD64F4A30B218EA30251FB23E"
             "WorkingFolder" = "8:_69A7B3F3CB674EACA4C595D71CCD497E"
             "Icon" = "8:_B6A316858FD64936BA45FB838A8A279B"
@@ -725,9 +725,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D8D32F4D543340DBA4F106D6BB728A40"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_5EB68BA3BA0B42BCA9BB72C1410AAC80"
             {
-            "SourcePath" = "8:..\\obj\\Debug\\net8.0-windows10.0.17763.0\\BusynessNotification.dll"
+            "SourcePath" = "8:..\\obj\\Debug\\net8.0-windows10.0.17763.0\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_69A7B3F3CB674EACA4C595D71CCD497E"
@@ -746,7 +746,7 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
+            "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{25335200-E431-4822-AD12-9C1233B954F5}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
