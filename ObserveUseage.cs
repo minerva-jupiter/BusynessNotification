@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Uwp.Notifications;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Toolkit.Uwp.Notifications;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -16,19 +17,22 @@ namespace BusynessNotification
 
         public async void Controller()
         {
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("SettingJson.json")
+                .Build();
             Debug.WriteLine("Controller has colled");
             ///設定から数値を取得
-            bool CheckCPU = Properties.Settings.Default.CheckCPU;
-            bool CheckMemory = Properties.Settings.Default.CheckMemory;
-            bool CheckDisk = Properties.Settings.Default.CheckDisk;
+            bool CheckCPU = Convert.ToBoolean(configuration["CheckCPU"]);
+            bool CheckMemory = Convert.ToBoolean(configuration["CheckMemory"]);
+            bool CheckDisk = Convert.ToBoolean(configuration["CheckDisk"]);
 
-            double CPUSlider = Properties.Settings.Default.SliderCPU;
-            double MemorySlider = Properties.Settings.Default.SliderMemory;
-            double DiskSlider = Properties.Settings.Default.SliderDisk;
+            double CPUSlider = Convert.ToDouble(configuration["SliderCPU"]);
+            double MemorySlider = Convert.ToDouble(configuration["SliderMemory"]);
+            double DiskSlider = Convert.ToDouble(configuration["SliderDisk"]);
 
-            int SecCPU = Properties.Settings.Default.SecCPU;
-            int SecMemory = Properties.Settings.Default.SecMemory;
-            int SecDisk = Properties.Settings.Default.SecDisk;
+            double SecCPU = Convert.ToDouble(configuration["SecCPU"]);
+            double SecMemory = Convert.ToDouble(configuration["SecMemory"]);
+            double SecDisk = Convert.ToDouble(configuration["SecDisk"]);
 
             int flagCPU = 0;
             int flagMemory = 0;

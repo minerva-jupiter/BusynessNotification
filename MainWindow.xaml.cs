@@ -10,6 +10,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Security.AccessControl;
+using System.Text.Json;
+using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
 
 namespace BusynessNotification
 {
@@ -26,29 +29,33 @@ namespace BusynessNotification
         double SliderMemory = 50;
         double SliderDisk = 50;
 
-        int SecCPU = 5;
-        int SecMemory = 5;
-        int SecDisk = 5;
+        double SecCPU = 5;
+        double SecMemory = 5;
+        double SecDisk = 5;
         public MainWindow()
         {
             InitializeComponent();
 
             ///設定値の読み取り
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("SettingJson.json")
+                .Build();
 
             try
             {
-                CheckCPU = Properties.Settings.Default.CheckCPU;
-                CheckMemory = Properties.Settings.Default.CheckMemory;
-                CheckDisk = Properties.Settings.Default.CheckDisk;
+                CheckCPU = Convert.ToBoolean(configuration["CheckCPU"]);
+                CheckMemory = Convert.ToBoolean(configuration["CheckMemory"]);
+                CheckDisk = Convert.ToBoolean(configuration["CheckDisk"]);
 
-                SliderCPU = Properties.Settings.Default.SliderCPU;
-                SliderMemory = Properties.Settings.Default.SliderMemory;
-                SliderDisk = Properties.Settings.Default.SliderDisk;
+                SliderCPU = Convert.ToDouble(configuration["SliderCPU"]);
+                SliderMemory = Convert.ToDouble(configuration["SliderMemory"]);
+                SliderDisk = Convert.ToDouble(configuration["SliderDisk"]);
 
-                SecCPU = Properties.Settings.Default.SecCPU;
-                SecMemory = Properties.Settings.Default.SecMemory;
-                SecDisk = Properties.Settings.Default.SecDisk;
-            }catch (Exception)
+                SecCPU = Convert.ToDouble(configuration["SecCPU"]);
+                SecMemory = Convert.ToDouble(configuration["SecMemory"]);
+                SecDisk = Convert.ToDouble(configuration["SecDisk"]);
+            }
+            catch (Exception)
             {
                 string messageBoxText = "Please try to set this app expect on secur app";
                 string caption = "Failed to get setting";
@@ -77,13 +84,6 @@ namespace BusynessNotification
             DiskSecTextBox.Text = SecDisk.ToString();
         }
 
-        private void CPUSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            int CPUvalue = (int)e.NewValue;
-            TextBox_CPUSlider.Text = CPUvalue.ToString();
-            CPUSlider.Value = CPUvalue;
-        }
-
         private void TextBox_CPUSlider_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox_CPUSlider.Text = InputNormalizerToDouble(TextBox_CPUSlider.Text,SliderCPU).ToString();
@@ -93,7 +93,17 @@ namespace BusynessNotification
         {
             TextBox_MemorySlider.Text = InputNormalizerToDouble(TextBox_MemorySlider.Text,SliderMemory).ToString();
         }
+        private void TextBox_DiskSlider_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox_CPUSlider.Text = InputNormalizerToDouble(TextBox_CPUSlider.Text.ToString(), SliderDisk).ToString();
+        }
 
+        private void CPUSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int CPUvalue = (int)e.NewValue;
+            TextBox_CPUSlider.Text = CPUvalue.ToString();
+            CPUSlider.Value = CPUvalue;
+        }
         private void MemorySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             int Memoryvalue = (int)e.NewValue;
@@ -106,11 +116,6 @@ namespace BusynessNotification
             int Diskvalue = (int)e.NewValue;
             TextBox_DiskSlider.Text = Diskvalue.ToString();
             DiskSlider.Value = Diskvalue;
-        }
-
-        private void TextBox_DiskSlider_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            TextBox_CPUSlider.Text = InputNormalizerToDouble(TextBox_CPUSlider.Text.ToString(), SliderDisk).ToString();
         }
 
         private void CPUSecTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -132,20 +137,22 @@ namespace BusynessNotification
         {
             try
             {
-                Properties.Settings.Default.CheckCPU = CPUcheck.IsChecked.Value;
-                Properties.Settings.Default.CheckMemory = Memorycheck.IsChecked.Value;
-                Properties.Settings.Default.CheckDisk = Diskcheck.IsChecked.Value;
+                SettingJson data = new SettingJson();
 
-                Properties.Settings.Default.SliderCPU = CPUSlider.Value;
-                Properties.Settings.Default.SliderMemory = MemorySlider.Value;
-                Properties.Settings.Default.SliderDisk = DiskSlider.Value;
+                data.CheckCPU = true;
+                data.CheckMemory = true;
+                data.CheckDisk = true;
+                data.SliderCPU = 50;
+                data.SliderMemory = 50;
+                data.SliderDisk = 50;
+                data.SecCPU = 5;
+                data.SecMemory = 5;
+                data.SecDisk = 5;
 
-                Properties.Settings.Default.SecCPU = int.Parse(CPUSecTextBox.Text.ToString());
-                Properties.Settings.Default.SecMemory = int.Parse(MemorySecTextBox.Text.ToString());
-                Properties.Settings.Default.SecDisk = int.Parse(DiskSecTextBox.Text.ToString());
-
-                Properties.Settings.Default.Save();
-            }catch (Exception)
+                string jsonStr = JsonSerializer.Serialize(data);
+                Debug.WriteLine(jsonStr);
+            }
+            catch (Exception)
             {
                 string messageBoxText = "Please try to set this app expect on secur app";
                 string caption = "Failed to get setting";
@@ -171,9 +178,9 @@ namespace BusynessNotification
         {
             double value;
             bool NormalizationCan = double.TryParse(input, out value);
-            if(NormalizationCan == false || value < 0 || value >= 1000)
+            if(NormalizationCan == false || value <= 0 || value >= 100)
             {
-                string messageBoxText = "Please enter up to 3 digits?";
+                string messageBoxText = "Please enter up to 100";
                 string caption = "unexpected input";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;

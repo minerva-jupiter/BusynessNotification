@@ -1,0 +1,11 @@
+﻿{
+  "CheckCPU": "true",
+  "CheckMemory": "true",
+  "CheckDisk": "true",
+  "SliderCPU": "50",
+  "SliderMemory": "50",
+  "SliderDisk": "50",
+  "SecCPU": "5",
+  "SecMemory": "5",
+  "SecDisk": "5"
+}
