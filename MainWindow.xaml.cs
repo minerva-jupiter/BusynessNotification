@@ -86,16 +86,19 @@ namespace BusynessNotification
 
         private void TextBox_CPUSlider_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox_CPUSlider.Text = InputNormalizerToDouble(TextBox_CPUSlider.Text,SliderCPU).ToString();
+            SliderCPU = InputNormalizerToDouble(TextBox_CPUSlider.Text, SliderCPU);
+            TextBox_CPUSlider.Text = SliderCPU.ToString();
         }
 
         private void TextBox_MemorySlider_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox_MemorySlider.Text = InputNormalizerToDouble(TextBox_MemorySlider.Text,SliderMemory).ToString();
+            SliderMemory = InputNormalizerToDouble(TextBox_MemorySlider.Text, SliderMemory);
+            TextBox_MemorySlider.Text = SliderMemory.ToString();
         }
         private void TextBox_DiskSlider_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox_CPUSlider.Text = InputNormalizerToDouble(TextBox_CPUSlider.Text.ToString(), SliderDisk).ToString();
+            SliderDisk = InputNormalizerToDouble(TextBox_CPUSlider.Text.ToString(), SliderDisk)
+            TextBox_CPUSlider.Text = SliderDisk.ToString();
         }
 
         private void CPUSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -139,7 +142,7 @@ namespace BusynessNotification
             {
                 SettingJson data = new SettingJson();
 
-                data.CheckCPU = true;
+                data.CheckCPU = 
                 data.CheckMemory = true;
                 data.CheckDisk = true;
                 data.SliderCPU = 50;

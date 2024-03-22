@@ -140,7 +140,7 @@ namespace BusynessNotification
 
                     GetWindowThreadProcessId(GetForegroundWindow(), out processid);
                     Process p = Process.GetProcessById(processid);
-                    if (p.MainModule.FileVersionInfo.ProductName == "BusynessNotification")
+                    if (p.MainModule.FileVersionInfo.ProductName != "BusynessNotification")
                     {
                         Environment.Exit(0);
                     }
