@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
@@ -39,6 +40,10 @@ namespace BusynessNotification
             int flagDisk = 0;
 
             Debug.WriteLine("Setting file have readed");
+
+            Debug.WriteLine("CheckCPU=" + CheckCPU + " CheckMemory=" + CheckMemory + " CheckDisk=" + CheckDisk);
+            Debug.WriteLine("SliderCPU=" + CPUSlider + " SliderMemory=" + MemorySlider + " SliderDisk=" + DiskSlider);
+            Debug.WriteLine("SecCPU=" + SecCPU + " SecMemory=" + SecMemory + " SecDisk=" + SecDisk);
 
             ///インスタンス
             System.Diagnostics.PerformanceCounter cpuCounter = new System.Diagnostics.PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
@@ -122,12 +127,26 @@ namespace BusynessNotification
                         .AddText("Byssyness Notification")
                         .AddText("This PC is now available")
                         .Show();
-                    Environment.Exit(0);
+
+                    int processid;
+                    [DllImport("user32.dll")]
+                    static extern IntPtr GetForegroundWindow();
+
+                    [DllImport("user32.dll", EntryPoint = "GetWindowText", CharSet = CharSet.Auto)]
+                    static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+                    [DllImport("user32.dll")]
+                    static extern uint GetWindowThreadProcessId(IntPtr hWnd, out int lpdwProcessId);
+
+                    GetWindowThreadProcessId(GetForegroundWindow(), out processid);
+                    Process p = Process.GetProcessById(processid);
+                    if (p.MainModule.FileVersionInfo.ProductName == "BusynessNotification")
+                    {
+                        Environment.Exit(0);
+                    }
                 }
             };
             timer = new System.Threading.Timer(timer_delegate,null,1000,1000);
-
-
         }
     }
 }

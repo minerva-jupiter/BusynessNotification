@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
 		<None Update="SettingJson.json">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
   </ItemGroup>
 

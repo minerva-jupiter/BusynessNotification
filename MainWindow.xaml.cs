@@ -178,7 +178,7 @@ namespace BusynessNotification
         {
             double value;
             bool NormalizationCan = double.TryParse(input, out value);
-            if(NormalizationCan == false || value <= 0 || value >= 100)
+            if(NormalizationCan == false || value < 0 || value > 100)
             {
                 string messageBoxText = "Please enter up to 100";
                 string caption = "unexpected input";
