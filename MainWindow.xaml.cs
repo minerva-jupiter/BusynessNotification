@@ -13,6 +13,7 @@ using System.Security.AccessControl;
 using System.Text.Json;
 using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace BusynessNotification
 {
@@ -97,7 +98,7 @@ namespace BusynessNotification
         }
         private void TextBox_DiskSlider_TextChanged(object sender, TextChangedEventArgs e)
         {
-            SliderDisk = InputNormalizerToDouble(TextBox_CPUSlider.Text.ToString(), SliderDisk)
+            SliderDisk = InputNormalizerToDouble(TextBox_CPUSlider.Text.ToString(), SliderDisk);
             TextBox_CPUSlider.Text = SliderDisk.ToString();
         }
 
@@ -106,12 +107,14 @@ namespace BusynessNotification
             int CPUvalue = (int)e.NewValue;
             TextBox_CPUSlider.Text = CPUvalue.ToString();
             CPUSlider.Value = CPUvalue;
+            SliderCPU = CPUvalue;
         }
         private void MemorySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             int Memoryvalue = (int)e.NewValue;
             TextBox_MemorySlider.Text = Memoryvalue.ToString();
             MemorySlider.Value = Memoryvalue;
+            SliderMemory = Memoryvalue;
         }
 
         private void DiskSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -119,21 +122,25 @@ namespace BusynessNotification
             int Diskvalue = (int)e.NewValue;
             TextBox_DiskSlider.Text = Diskvalue.ToString();
             DiskSlider.Value = Diskvalue;
+            SliderDisk = Diskvalue;
         }
 
         private void CPUSecTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CPUSecTextBox.Text = InputNormalizerToDouble(CPUSecTextBox.Text,SecCPU).ToString();
+            SecCPU = InputNormalizerToDouble(CPUSecTextBox.Text, SecCPU);
+            CPUSecTextBox.Text = SecCPU.ToString();
         }
 
         private void MemorySecTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            MemorySecTextBox.Text = InputNormalizerToDouble(MemorySecTextBox.Text.ToString(), SecMemory).ToString();
+            SecMemory = InputNormalizerToDouble(MemorySecTextBox.Text, SecMemory);
+            MemorySecTextBox.Text = SecMemory.ToString();
         }
 
         private void DiskSecTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            DiskSecTextBox.Text = InputNormalizerToDouble(DiskSecTextBox.Text.ToString(), SecDisk).ToString();
+            SecDisk = InputNormalizerToDouble(DiskSecTextBox.Text.ToString(), SecDisk);
+            DiskSecTextBox.Text = SecDisk.ToString();
         }
 
         private void SaveSettingButton_Click(object sender, RoutedEventArgs e)
@@ -142,23 +149,24 @@ namespace BusynessNotification
             {
                 SettingJson data = new SettingJson();
 
-                data.CheckCPU = 
-                data.CheckMemory = true;
-                data.CheckDisk = true;
-                data.SliderCPU = 50;
-                data.SliderMemory = 50;
-                data.SliderDisk = 50;
-                data.SecCPU = 5;
-                data.SecMemory = 5;
-                data.SecDisk = 5;
+                data.CheckCPU = Convert.ToBoolean(CPUcheck.IsChecked);
+                data.CheckMemory = Convert.ToBoolean(Memorycheck.IsChecked);
+                data.CheckDisk = Convert.ToBoolean(Diskcheck.IsChecked);
+                data.SliderCPU = SliderCPU;
+                data.SliderMemory = SliderMemory;
+                data.SliderDisk = SliderDisk;
+                data.SecCPU = SecCPU;
+                data.SecMemory = SecMemory;
+                data.SecDisk = SecDisk;
 
                 string jsonStr = JsonSerializer.Serialize(data);
+                File.WriteAllText(@"SettingJson.json", jsonStr);
                 Debug.WriteLine(jsonStr);
             }
             catch (Exception)
             {
                 string messageBoxText = "Please try to set this app expect on secur app";
-                string caption = "Failed to get setting";
+                string caption = "Failed to save setting";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
                 MessageBoxResult result;
