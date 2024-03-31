@@ -62,7 +62,6 @@ namespace BusynessNotification
                 string caption = "Failed to get setting";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxResult result;
 
                 System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
             }
@@ -170,9 +169,8 @@ namespace BusynessNotification
                 string caption = "Failed to save setting";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxResult result;
 
-                result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+                System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
             }
             finally
             {
@@ -180,9 +178,8 @@ namespace BusynessNotification
                 string caption = "Finish saving setting prosess";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Information;
-                MessageBoxResult result;
 
-                result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+                System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
             }
         }
 
@@ -195,7 +192,6 @@ namespace BusynessNotification
                 string caption = "unexpected input";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxResult result;
 
                 System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
                 value = oldValue;
