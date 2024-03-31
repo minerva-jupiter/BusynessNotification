@@ -64,7 +64,7 @@ namespace BusynessNotification
                 MessageBoxImage icon = MessageBoxImage.Warning;
                 MessageBoxResult result;
 
-                result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+                System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
             }
 
             ///取得した値をUIに適応
@@ -147,25 +147,26 @@ namespace BusynessNotification
         {
             try
             {
-                SettingJson data = new SettingJson();
-
-                data.CheckCPU = Convert.ToBoolean(CPUcheck.IsChecked);
-                data.CheckMemory = Convert.ToBoolean(Memorycheck.IsChecked);
-                data.CheckDisk = Convert.ToBoolean(Diskcheck.IsChecked);
-                data.SliderCPU = SliderCPU;
-                data.SliderMemory = SliderMemory;
-                data.SliderDisk = SliderDisk;
-                data.SecCPU = SecCPU;
-                data.SecMemory = SecMemory;
-                data.SecDisk = SecDisk;
+                SettingJson data = new()
+                {
+                    CheckCPU = Convert.ToBoolean(CPUcheck.IsChecked),
+                    CheckMemory = Convert.ToBoolean(Memorycheck.IsChecked),
+                    CheckDisk = Convert.ToBoolean(Diskcheck.IsChecked),
+                    SliderCPU = SliderCPU,
+                    SliderMemory = SliderMemory,
+                    SliderDisk = SliderDisk,
+                    SecCPU = SecCPU,
+                    SecMemory = SecMemory,
+                    SecDisk = SecDisk
+                };
 
                 string jsonStr = JsonSerializer.Serialize(data);
                 File.WriteAllText(@"SettingJson.json", jsonStr);
                 Debug.WriteLine(jsonStr);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                string messageBoxText = "Please try to set this app expect on secur app";
+                string messageBoxText = "Please try to set this app expect on secur app.(Exception number: " + ex + ")";
                 string caption = "Failed to save setting";
                 MessageBoxButton button = MessageBoxButton.OK;
                 MessageBoxImage icon = MessageBoxImage.Warning;
@@ -187,9 +188,8 @@ namespace BusynessNotification
 
         static double InputNormalizerToDouble(string input,double oldValue)
         {
-            double value;
-            bool NormalizationCan = double.TryParse(input, out value);
-            if(NormalizationCan == false || value < 0 || value > 100)
+            bool NormalizationCan = double.TryParse(input, out double value);
+            if (NormalizationCan == false || value < 0 || value > 100)
             {
                 string messageBoxText = "Please enter up to 100";
                 string caption = "unexpected input";
@@ -197,7 +197,7 @@ namespace BusynessNotification
                 MessageBoxImage icon = MessageBoxImage.Warning;
                 MessageBoxResult result;
 
-                result = System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
+                System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
                 value = oldValue;
                 return value;
             }

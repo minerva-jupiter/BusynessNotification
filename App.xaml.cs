@@ -28,7 +28,7 @@ namespace BusynessNotification
             };
             notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(NotifyIcon_Click);
 
-            ObserveUseage observeUseage = new ObserveUseage();
+            ObserveUseage observeUseage = new();
             observeUseage.Controller();
         }
 

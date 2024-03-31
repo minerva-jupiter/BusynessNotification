@@ -46,20 +46,24 @@ namespace BusynessNotification
             Debug.WriteLine("SecCPU=" + SecCPU + " SecMemory=" + SecMemory + " SecDisk=" + SecDisk);
 
             ///インスタンス
-            System.Diagnostics.PerformanceCounter cpuCounter = new System.Diagnostics.PerformanceCounter("Processor Information", "% Processor Utility", "_Total");
+            System.Diagnostics.PerformanceCounter cpuCounter = new("Processor Information", "% Processor Utility", "_Total");
 
-            PerformanceCounter performanceCounterRAM = new PerformanceCounter();
-            performanceCounterRAM.CounterName = "% Committed Bytes In Use";
-            performanceCounterRAM.CategoryName = "Memory";
+            PerformanceCounter performanceCounterRAM = new()
+            {
+                CounterName = "% Committed Bytes In Use",
+                CategoryName = "Memory"
+            };
 
-            PerformanceCounter Disc1 = new PerformanceCounter();
-            Disc1.CategoryName = "LogicalDisk";
-            Disc1.CounterName = "Disk Transfers/sec";
-            Disc1.InstanceName = "C:";
+            PerformanceCounter Disc1 = new()
+            {
+                CategoryName = "LogicalDisk",
+                CounterName = "Disk Transfers/sec",
+                InstanceName = "C:"
+            };
 
             System.Threading.Timer timer = null;
-            
-            TimerCallback timer_delegate = async state =>
+
+            async void timer_delegate(object? state)
             {
 
                 Debug.WriteLine("timer is still waiking");
@@ -117,7 +121,7 @@ namespace BusynessNotification
                 }
 
 
-                if(flagCPU >= SecCPU &&  flagMemory >= SecMemory && flagDisk >= SecDisk)
+                if (flagCPU >= SecCPU && flagMemory >= SecMemory && flagDisk >= SecDisk)
                 {
                     Debug.WriteLine("All clear");
 
@@ -128,25 +132,21 @@ namespace BusynessNotification
                         .AddText("This PC is now available")
                         .Show();
 
-                    int processid;
                     [DllImport("user32.dll")]
                     static extern IntPtr GetForegroundWindow();
-
-                    [DllImport("user32.dll", EntryPoint = "GetWindowText", CharSet = CharSet.Auto)]
-                    static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
                     [DllImport("user32.dll")]
                     static extern uint GetWindowThreadProcessId(IntPtr hWnd, out int lpdwProcessId);
 
-                    GetWindowThreadProcessId(GetForegroundWindow(), out processid);
+                    _ = GetWindowThreadProcessId(GetForegroundWindow(), out int processid);
                     Process p = Process.GetProcessById(processid);
                     if (p.MainModule.FileVersionInfo.ProductName != "BusynessNotification")
                     {
                         Environment.Exit(0);
                     }
                 }
-            };
-            timer = new System.Threading.Timer(timer_delegate,null,1000,1000);
+            }
+            timer = new System.Threading.Timer(timer_delegate, null, 1000, 1000);
         }
     }
 }
