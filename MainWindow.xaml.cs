@@ -88,40 +88,37 @@ namespace BusynessNotification
         {
             SliderCPU = InputNormalizerToDouble(TextBox_CPUSlider.Text, SliderCPU);
             TextBox_CPUSlider.Text = SliderCPU.ToString();
+            CPUSlider.Value = SliderCPU;
         }
 
         private void TextBox_MemorySlider_TextChanged(object sender, TextChangedEventArgs e)
         {
             SliderMemory = InputNormalizerToDouble(TextBox_MemorySlider.Text, SliderMemory);
             TextBox_MemorySlider.Text = SliderMemory.ToString();
+            MemorySlider.Value = SliderMemory;
         }
         private void TextBox_DiskSlider_TextChanged(object sender, TextChangedEventArgs e)
         {
-            SliderDisk = InputNormalizerToDouble(TextBox_CPUSlider.Text.ToString(), SliderDisk);
-            TextBox_CPUSlider.Text = SliderDisk.ToString();
+            SliderDisk = InputNormalizerToDouble(TextBox_DiskSlider.Text.ToString(), SliderDisk);
+            TextBox_DiskSlider.Text = SliderDisk.ToString();
+            DiskSlider.Value = SliderDisk;
         }
 
         private void CPUSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            int CPUvalue = (int)e.NewValue;
-            TextBox_CPUSlider.Text = CPUvalue.ToString();
-            CPUSlider.Value = CPUvalue;
-            SliderCPU = CPUvalue;
+            SliderCPU = CPUSlider.Value;
+            TextBox_CPUSlider.Text = SliderCPU.ToString();
         }
         private void MemorySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            int Memoryvalue = (int)e.NewValue;
-            TextBox_MemorySlider.Text = Memoryvalue.ToString();
-            MemorySlider.Value = Memoryvalue;
-            SliderMemory = Memoryvalue;
+            SliderMemory = MemorySlider.Value;
+            TextBox_MemorySlider.Text = SliderMemory.ToString();
         }
 
         private void DiskSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            int Diskvalue = (int)e.NewValue;
-            TextBox_DiskSlider.Text = Diskvalue.ToString();
-            DiskSlider.Value = Diskvalue;
-            SliderDisk = Diskvalue;
+            SliderDisk = DiskSlider.Value;
+            TextBox_DiskSlider.Text = SliderDisk.ToString();
         }
 
         private void CPUSecTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -185,6 +182,9 @@ namespace BusynessNotification
 
         static double InputNormalizerToDouble(string input,double oldValue)
         {
+            if(input == null || input == ""){
+                return oldValue;
+            }
             bool NormalizationCan = double.TryParse(input, out double value);
             if (NormalizationCan == false || value < 0 || value > 100)
             {
@@ -194,8 +194,7 @@ namespace BusynessNotification
                 MessageBoxImage icon = MessageBoxImage.Warning;
 
                 System.Windows.MessageBox.Show(messageBoxText, caption, button, icon);
-                value = oldValue;
-                return value;
+                return oldValue;
             }
             else
             {
