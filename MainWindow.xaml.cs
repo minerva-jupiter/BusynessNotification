@@ -96,18 +96,21 @@ namespace BusynessNotification
 
         private void CPUSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            SliderCPU = CPUSlider.Value;
+            SliderCPU = Math.Round(CPUSlider.Value);
+            CPUSlider.Value = SliderCPU;
             TextBox_CPUSlider.Text = SliderCPU.ToString();
         }
         private void MemorySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            SliderMemory = MemorySlider.Value;
+            SliderMemory = Math.Round(MemorySlider.Value);
+            MemorySlider.Value = SliderMemory;
             TextBox_MemorySlider.Text = SliderMemory.ToString();
         }
 
         private void DiskSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            SliderDisk = DiskSlider.Value;
+            SliderDisk = Math.Round(DiskSlider.Value);
+            DiskSlider.Value = SliderDisk;
             TextBox_DiskSlider.Text = SliderDisk.ToString();
         }
 
