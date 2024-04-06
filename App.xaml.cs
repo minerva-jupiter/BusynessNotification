@@ -42,7 +42,7 @@ namespace BusynessNotification
             int i = 0;
 
             Debug.WriteLine("length of notification is " + notifs.Count);
-            Debug.WriteLine("notifis is " + notifs[0]);
+            ///Debug.WriteLine("notifis is " + notifs[0]);
 
             while (notifs.Count >= i+1)
             {
