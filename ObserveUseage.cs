@@ -125,6 +125,7 @@ namespace BusynessNotification
                         .AddText("This PC is now available")
                         .Show();
 
+                    //check BN View is up
                     [DllImport("user32.dll")]
                     static extern IntPtr GetForegroundWindow();
 

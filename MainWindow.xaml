@@ -20,7 +20,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <CheckBox x:Name="CPUcheck" Content="CPU" HorizontalAlignment="Center" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
         <CheckBox x:Name="Memorycheck" Content="Memory" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
         <CheckBox x:Name="Diskcheck" Content="Disk" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" d:LayoutOverrides="LeftPosition, RightPosition"/>
@@ -40,6 +40,7 @@
         <TextBox x:Name="TextBox_DiskSlider" Grid.Column="1" HorizontalAlignment="Right" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" d:LayoutOverrides="TopPosition, BottomPosition" TextChanged="TextBox_DiskSlider_TextChanged" MaxLength="3" MaxLines="2" Margin="0,0,5,0"/>
         <TextBlock x:Name="sec_Disk" Grid.Column="2" TextWrapping="Wrap" Text="sec." IsEnabled="False" IsHitTestVisible="False" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,50,0"/>
         <TextBox x:Name="DiskSecTextBox" Grid.Column="2" TextWrapping="Wrap" Text="10" UndoLimit="4" HorizontalAlignment="Center" TextAlignment="Center" Grid.Row="2" d:LayoutOverrides="Height" TextChanged="DiskSecTextBox_TextChanged" MaxLength="3" MaxLines="1" VerticalAlignment="Center"/>
+        <Button x:Name="TestNotify" Grid.Column="2" Content="TestNotify" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Click="TestNotify_Click"/>
 
     </Grid>
 </Window>

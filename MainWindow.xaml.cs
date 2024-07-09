@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace BusynessNotification
 {
@@ -193,6 +194,14 @@ namespace BusynessNotification
             {
                 return value;
             }
+        }
+
+        private void TestNotify_Click(object sender, RoutedEventArgs e)
+        {
+            new ToastContentBuilder()
+                .AddText("Byssyness Notification")
+                .AddText("Test Notify is here")
+                .Show();
         }
     }
 }
